@@ -14,23 +14,28 @@
 </p>
 
 
-##Overview
+## Overview
 
 
 
 
-##Deploying
+## Deploying
 
-```bash
 
 #### Clone the repo
-git clone https://github.com/Moonlight-io/asteroid-neo.git
 
+```bash
+git clone https://github.com/Moonlight-io/asteroid-neo.git
+```
 #### Build the container and tag it
+
+```bash
 cd asteroid-neo
 docker build -t asteroid-neo .
-
+```
 ### Start the container with the port binding
+
+```bash
 docker run -d -p 10332:10332 asteroid-neo
 ```
 
