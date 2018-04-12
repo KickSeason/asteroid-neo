@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  A neo-cli service for asteroid.
+  A high-availability neo-cli service for asteroid.
 </p>
 
 
-## Overview
+# Individual Node Overview
 
 
 ## Pull and Deploy
@@ -46,3 +46,15 @@ docker run -d -p 10332:10332 asteroid-neo
 ```
 
 <i><b>Note:</b> You will need to open port 10332 in your security group</i>
+
+# High-Availability Swarm
+
+This deployment uses docker-machine to deploy a swarm of neo-cli instances.  The load-balancer service is used to guarantee that the highest available block in the swarm is returned.
+
+## Locally:
+<i><b>Note:</b> You will need to open port 10332 in your security group</i>
+
+```bash
+docker swarm init
+docker stack deploy -c docker-compose.yml asteroid-neo
+```

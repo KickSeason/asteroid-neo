@@ -1,0 +1,18 @@
+version: "3"
+services:
+  asteroid-neo:
+    image: 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo:latest 
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 300M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "10332:10332"
+    networks:
+      - asteroid-neo
+networks:
+  asteroid-neo:
