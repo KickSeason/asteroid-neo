@@ -17,9 +17,15 @@
 ## Overview
 
 
+## Pull and Deploy
+asteroid-neo is available on ECR and can be pulled using the following command:
+```bash
+sudo docker pull 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo
+```
 
+@TODO: migrate ECR to Moonlight AWS
 
-## Deploying
+## Build and Deploy
 
 
 #### Clone the repo
@@ -33,7 +39,7 @@ git clone https://github.com/Moonlight-io/asteroid-neo.git
 cd asteroid-neo
 docker build -t asteroid-neo .
 ```
-### Start the container with the port binding
+#### Start the container with the port binding
 
 ```bash
 docker run -d -p 10332:10332 asteroid-neo
