@@ -14,7 +14,6 @@
   A high-availability neo-cli service for asteroid.
 </p>
 
-
 Asteroid-Neo is designed to be run as either a stand-alone neo-cli instance or as a swarm with loadbalancing (Asteroid-loadBalancer).
 
 
