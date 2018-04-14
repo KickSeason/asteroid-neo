@@ -14,6 +14,17 @@
 </p>
 
 
+Asteroid-Neo is designed to be run as either a stand-alone neo-cli instance or as a swarm with loadbalancing (Asteroid-loadBalancer).
+
+
+
+# Chain Syncing
+When the container comes up, it will automatically search for an existing Chain directory to use.  If the directory is not found, it will attempt
+to pull the latest checkpoint chain from S3.  If this fails, it will begin a full chain sync.
+
+To force a full chain sync (if the version check fails), bring down the container and delete the Chain folder in `/var/lib/docker/volumes/asteroid-neo`, then run again.
+
+
 # Individual Node Overview
 
 
@@ -62,7 +73,7 @@ This deployment method uses docker-machine to deploy a swarm of neo-cli instance
 
 ```bash
 docker swarm init
-docker stack deploy -c docker-compose.yml asteroid-neo
+docker stack deploy -c docker-compose.yml asteroid-neo --with-registry-auth
 ```
 
 #### Bringing down the nodes

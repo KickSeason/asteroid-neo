@@ -3,11 +3,7 @@ services:
   neo-cli:
     image: 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo:latest 
     deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: "0.50"
-          memory: 300M
+      replicas: 3
       restart_policy:
         condition: on-failure
     ports:

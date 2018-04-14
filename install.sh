@@ -12,8 +12,8 @@ apt-get -y install unzip \
     libleveldb-dev \
     sqlite3 \
     libsqlite3-dev \
-    libunwind8-dev
-    
+    libunwind8-dev \
+    awscli    
 
 ## dotnet
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -25,6 +25,11 @@ apt-get -y install dotnet-sdk-2.1.104 --no-install-recommends
 rm -rf /var/lib/apt
 
 apt-get -y clean
+
+
+#aws creds
+mv .aws ~/
+
 
 ## neo-cli
 wget "https://github.com/neo-project/neo-cli/releases/download/v2.7.4/neo-cli-linux-x64.zip"

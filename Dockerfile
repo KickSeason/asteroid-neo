@@ -12,4 +12,4 @@ RUN /var/www/asteroid-neo/install.sh
 EXPOSE 20332
 EXPOSE 20333
 
-CMD expect /var/www/asteroid-neo/run.sh 
+CMD ./var/www/asteroid-neo/run.sh 
