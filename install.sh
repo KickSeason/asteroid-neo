@@ -13,7 +13,12 @@ apt-get -y install unzip \
     sqlite3 \
     libsqlite3-dev \
     libunwind8-dev \
-    awscli    
+    awscli \
+    python-pip \
+    zip \
+    cron    
+
+pip install requests boto3
 
 ## dotnet
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -26,12 +31,11 @@ rm -rf /var/lib/apt
 
 apt-get -y clean
 
-
-#aws creds
-mv .aws ~/
-
-
 ## neo-cli
 wget "https://github.com/neo-project/neo-cli/releases/download/v2.7.4/neo-cli-linux-x64.zip"
 unzip neo-cli-linux-x64.zip
 rm neo-cli-linux-x64.zip
+
+touch /var/log/cron.log
+
+mv .aws ~/

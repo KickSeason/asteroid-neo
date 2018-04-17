@@ -53,7 +53,7 @@ docker build -t asteroid-neo .
 #### Start the container with persistant storage
 
 ```bash
-sudo docker run -d -p 10332:10332 -v Chain:/var/www/asteroid-neo/neo-cli/Chain asteroid-neo
+sudo docker run -d -p 10332:10332 --name neo-cli -v Chain:/var/www/asteroid-neo/neo-cli/Chain asteroid-neo
 ```
 
 or using the registry:
