@@ -1,6 +1,6 @@
 version: "3"
 services:
-  neo-cli:
+  neo-cli-slave:
     image: moonlightio/asteroid-neo:latest 
     deploy:
       replicas: 3
