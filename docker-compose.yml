@@ -1,7 +1,7 @@
 version: "3"
 services:
   neo-cli:
-    image: 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo:latest 
+    image: moonlightio/asteroid-neo:latest 
     deploy:
       replicas: 3
       restart_policy:
