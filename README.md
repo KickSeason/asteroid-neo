@@ -42,7 +42,7 @@ To force download of a new checkpoint, bring down the container and delete the C
 ## Using the registry
 asteroid-neo is available on ECR and can be pulled using the following command:
 ```bash
-sudo docker pull 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo
+sudo docker pull moonlightio/asteroid-neo
 ```
 
 @TODO: migrate ECR to Moonlight AWS
@@ -70,7 +70,7 @@ sudo docker run -d -p 10332:10332 -v Chain:/var/www/asteroid-neo/neo-cli/Chain a
 or using the registry:
 
 ```bash
-sudo docker run -d -p 10332:10332 -v Chain:/var/www/asteroid-neo/neo-cli/Chain 340431872443.dkr.ecr.us-east-1.amazonaws.com/asteroid-neo
+sudo docker run -d -p 10332:10332 -v Chain:/var/www/asteroid-neo/neo-cli/Chain moonlightio/asteroid-neo
 ```
 
 <i><b>Note:</b> You will need to open port 10332 in your security group to access the RPC endpoint</i>
