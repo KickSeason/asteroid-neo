@@ -8,6 +8,9 @@ services:
         condition: on-failure
     ports:
       - "10332:10332"
+      - "10333:10333"
+      - "10334:10334"
+
     networks:
       - asteroid-neo
     volumes:
