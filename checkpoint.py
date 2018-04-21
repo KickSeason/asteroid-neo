@@ -2,7 +2,7 @@ import boto3
 import os
 import json
 
-CHECKPOINT_DELTA = 200 #blocks
+CHECKPOINT_DELTA = 25200 #blocks
 HEIGHT = 0
 CLI_VERSION = '0'
 

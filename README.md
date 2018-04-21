@@ -82,7 +82,7 @@ This deployment method uses docker-machine to deploy a swarm of neo-cli instance
 <b>Note:</b> Load balancing in this funcationality has not yet been deployed.
 
 ## Locally:
-<i><b>Note:</b> You will need to open port 10332 in your security group</i>
+<i><b>Note:</b> You will need to open ports 10332(TCP), 2376(TCP), 2377(TCP), 7946(TCP/UDP), and 4789(UDP) in your security group</i>
 
 ```bash
 docker swarm init

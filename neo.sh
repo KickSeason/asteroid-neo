@@ -12,7 +12,7 @@ spawn dotnet neo-cli.dll --no-peers /rpc
 expect "neo>"
 
 if {[lindex $argv 0] == "1"} {
-    sleep 3600
+    sleep 86400
     send "exit\r"
 }
 
