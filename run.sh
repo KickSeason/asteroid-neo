@@ -1,5 +1,5 @@
 #can get this info from neo-cli...
-version="2.7.4"
+version="2.7.6"
 
 service cron start
 
@@ -13,31 +13,33 @@ if [ -d "neo-cli/Chain" ] && [ ! -f "neo-cli/Chain/$version" ] ; then
 fi
 
 
-if [ ! "$(ls -A neo-cli/Chain)" ] ; then
-    chain=$(aws s3 ls s3://chainneo --no-sign-request | awk '{print $4}' | sort -r | grep -m 1 $version)
-    echo "Downloading: $chain"
+# if [ ! "$(ls -A neo-cli/Chain)" ] ; then
+#     chain=$(aws s3 ls s3://chainneo --no-sign-request | awk '{print $4}' | sort -r | grep -m 1 $version)
+#     echo "Downloading: $chain"
 
-    wget "https://s3.amazonaws.com/chainneo/$chain"    
+#     wget "https://s3.amazonaws.com/chainneo/$chain"    
  
-    echo "Extracting: $chain"
-    unzip "$chain"
-    #mv Chain/* neo-cli/Chain
-    touch "neo-cli/Chain/$version"
+#     echo "Extracting: $chain"
+#     unzip "$chain"
+#     #mv Chain/* neo-cli/Chain
+#     touch "neo-cli/Chain/$version"
 
-    rm "$chain"
-    rm -rf Chain
+#     rm "$chain"
+#     rm -rf Chain
 
-fi
+# fi
 
+python sync.py $version
 
-if [ -z ${aws_access_key_id+x} ] || [ -z ${aws_secret_access_key+x} ]; then
+if [ -z ${aliyun_access_key_id+x} ] || [ -z ${aliyun_secret_access_key+x} ]; then
     echo "running in slave mode"
     expect ./neo.sh 0
 else      
-    echo "[default]" >> ~/.aws/credentials
-    echo "aws_access_key_id = $aws_access_key_id" >> ~/.aws/credentials
-    echo "aws_secret_access_key = $aws_secret_access_key" >> ~/.aws/credentials
-
+    echo "[default]" >> ~/.aliyun/credentials
+    echo "aliyun_access_key_id = $aliyun_access_key_id" >> ~/.aliyun/credentials
+    echo "aliyun_secret_access_key = $aliyun_secret_access_key" >> ~/.aliyun/credentials
+    echo "bucket_name = $bucket_name" >> ~/.aliyun/credentials
+    echo "endpoint = $endpoint" >> ~/.aliyun/credentials
     while :
     do
         echo "Running in master mode | Hopefully your credentials are good..."

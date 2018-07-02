@@ -18,7 +18,10 @@ apt-get -y install unzip \
     zip \
     cron    
 
-pip install requests boto3
+#when use aws s3
+#pip install requests boto3
+#when use aliyun oss
+pip install oss2
 
 ## dotnet
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -32,10 +35,10 @@ rm -rf /var/lib/apt
 apt-get -y clean
 
 ## neo-cli
-wget "https://github.com/neo-project/neo-cli/releases/download/v2.7.4/neo-cli-linux-x64.zip"
+wget "https://neo-cli.oss-cn-hangzhou.aliyuncs.com/v2.7.6/neo-cli-linux-x64.zip"
 unzip neo-cli-linux-x64.zip
 rm neo-cli-linux-x64.zip
 
 touch /var/log/cron.log
 
-mv .aws ~/
+#mv .aws ~/
