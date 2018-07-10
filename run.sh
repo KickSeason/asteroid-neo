@@ -7,10 +7,10 @@ service cron start
 cd /var/www/asteroid-neo
 
 
-if [ -d "neo-cli/Chain" ] && [ ! -f "neo-cli/Chain/$version" ] ; then
-    echo "Old Chain Found...Scrubbing"
-    rm -rf neo-cli/Chain/*
-fi
+# if [ -d "neo-cli/Chain" ] && [ ! -f "neo-cli/Chain/$version" ] ; then
+#     echo "Old Chain Found...Scrubbing"
+#     rm -rf neo-cli/Chain/*
+# fi
 
 
 # if [ ! "$(ls -A neo-cli/Chain)" ] ; then
@@ -31,7 +31,7 @@ fi
 
 python sync.py $version
 
-if [ -z ${aliyun_access_key_id+x} ] || [ -z ${aliyun_secret_access_key+x} ]; then
+if [ ${runmaster}x != truex ]; then
     echo "running in slave mode"
     expect ./neo.sh 0
 else      
@@ -40,6 +40,7 @@ else
     echo "aliyun_secret_access_key = $aliyun_secret_access_key" >> ~/.aliyun/credentials
     echo "bucket_name = $bucket_name" >> ~/.aliyun/credentials
     echo "endpoint = $endpoint" >> ~/.aliyun/credentials
+    echo "runmaster" = $runmaster >> ~/.aliyun/credentials
     while :
     do
         echo "Running in master mode | Hopefully your credentials are good..."

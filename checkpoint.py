@@ -59,8 +59,7 @@ bucket = oss2.Bucket(oss2.Auth(access_key_id, access_key_secret), endpoint, buck
 mCheckpoint = getMaxCheckpoint()
 print 'max: {}'.format(mCheckpoint)
 print 'height: {}'.format(HEIGHT)
-
-
+print 'aliyun-height: {}'.format(mCheckpoint)
  
 if HEIGHT - mCheckpoint >= CHECKPOINT_DELTA:
     print 'time to upload'
