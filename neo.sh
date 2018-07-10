@@ -7,7 +7,7 @@ set checkpoint [lindex $argv 0];
 
 cd neo-cli
 
-spawn dotnet neo-cli.dll --no-peers /rpc
+spawn dotnet neo-cli.dll --no-peers --rpc
 
 expect "neo>"
 

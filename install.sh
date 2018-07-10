@@ -41,4 +41,4 @@ rm neo-cli-linux-x64.zip
 
 touch /var/log/cron.log
 
-#mv .aws ~/
+mv .aliyun ~/
