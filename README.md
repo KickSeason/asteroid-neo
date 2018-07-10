@@ -98,23 +98,17 @@ docker stack rm asteroid-neo
 docker swarm leave --force
 ```
 
-##change
+## change
 * replace aws to aliyun
 * add sync.py to synchron chain data
 
 > start  container use : 
+
 ```
  sudo docker run -d -p 10332:10332  --name node-master 
- ```
- ```-e  'aliyun_access_key_id=LTAIbqtbKzoXVtMq'   
- ```
- ```
+ -e  'aliyun_access_key_id=LTAIbqtbKzoXVtMq'   
  -e   'aliyun_secret_access_key=88RD6JfxDa56DDaAYtSU20Y6DvUCBa' 
- ```
- ```
  -e 'bucket_name=chainneo' 
- ```
- ```-e 'endpoint=oss-cn-hangzhou.aliyuncs.com'  
- ```
- ```-e 'runmaster=true' asteroid-neo
+ -e 'endpoint=oss-cn-hangzhou.aliyuncs.com'  
+ -e 'runmaster=true' asteroid-neo
  ```
